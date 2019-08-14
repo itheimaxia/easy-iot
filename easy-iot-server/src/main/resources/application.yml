@@ -3,7 +3,7 @@ mqtt:
     host: tcp://192.168.62.133:1883
     clientid: mqttjs_e8022a4d0b
     topic: good,test,yes
-    username: admin
-    password: public
+    username: test
+    password: 123456
     timeout: 10
     keepalive: 20
