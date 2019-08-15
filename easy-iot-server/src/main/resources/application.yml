@@ -3,7 +3,18 @@ mqtt:
     host: tcp://192.168.62.133:1883
     clientid: mqttjs_e8022a4d0b
     topic: good,test,yes
-    username: test
-    password: 123456
+    username: xiadong/U2arIT
+    password: TvxY1Q
     timeout: 10
     keepalive: 20
+
+#mongo配置
+spring:
+    data:
+        mongodb:
+            host: 192.168.62.133
+            port: 27017
+            database: easyiot
+
+    jackson:
+        property-naming-strategy: CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES

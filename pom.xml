@@ -18,6 +18,8 @@
 
     <modules>
         <module>easy-iot-server</module>
+        <module>easy-iot-sdk</module>
+        <module>easy-iot-common</module>
     </modules>
 
     <properties>
@@ -26,7 +28,16 @@
         <java.version>1.8</java.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <commons.lang3>3.8.1</commons.lang3>
     </properties>
 
-
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons.lang3}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>
