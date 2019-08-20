@@ -4,15 +4,22 @@ import com.itheimaxia.easyiot.common.bean.Device;
 import com.itheimaxia.easyiot.common.util.DeviceUtil;
 import com.itheimaxia.easyiot.server.bean.ConnectionDO;
 import com.itheimaxia.easyiot.server.bean.DeviceDO;
+import com.itheimaxia.easyiot.server.entity.PageResult;
+import com.itheimaxia.easyiot.server.entity.QueryPageBean;
 import com.itheimaxia.easyiot.server.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.aggregation.Aggregation;
+import org.springframework.data.mongodb.core.aggregation.LookupOperation;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -46,6 +53,21 @@ public class DeviceServiceImpl implements DeviceService {
 
         return device;
     }
+
+    @Override
+    public PageResult findPages(QueryPageBean pageBean) {
+
+        Query query = new Query();
+
+        Pageable pageable = PageRequest.of(pageBean.getCurrentPage()-1, pageBean.getPageSize());
+        query.with(pageable);
+        // 查询总数
+        long count = mongoTemplate.count(query, DeviceDO.class);
+        List<DeviceDO> items = mongoTemplate.find(query, DeviceDO.class);
+
+        return new PageResult(count,items);
+    }
+
 
     private void connected(Map webHook){
         String username = (String) webHook.get("username");
