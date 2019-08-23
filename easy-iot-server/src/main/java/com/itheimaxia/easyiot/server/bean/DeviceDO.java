@@ -1,6 +1,6 @@
 package com.itheimaxia.easyiot.server.bean;
 
-import com.itheimaxia.easyiot.common.bean.Device;
+import com.itheimaxia.easyiot.api.bean.Device;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

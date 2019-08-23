@@ -1,6 +1,7 @@
-package com.itheimaxia.easyiot.common.util;
+package com.itheimaxia.easyiot.api.util;
 
-import com.itheimaxia.easyiot.common.bean.Device;
+
+import com.itheimaxia.easyiot.api.bean.Device;
 
 public final class DeviceUtil {
 

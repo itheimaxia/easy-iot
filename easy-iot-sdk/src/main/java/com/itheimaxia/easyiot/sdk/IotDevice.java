@@ -1,7 +1,7 @@
 package com.itheimaxia.easyiot.sdk;
 
-import com.itheimaxia.easyiot.common.bean.Device;
-import com.itheimaxia.easyiot.common.util.DeviceUtil;
+import com.itheimaxia.easyiot.api.bean.Device;
+import com.itheimaxia.easyiot.api.util.DeviceUtil;
 import com.itheimaxia.easyiot.sdk.mqtt.PushCallback;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;

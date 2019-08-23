@@ -1,4 +1,4 @@
-package com.itheimaxia.easyiot.common.bean;
+package com.itheimaxia.easyiot.api.bean;
 
 import java.io.Serializable;
 

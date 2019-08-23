@@ -71,7 +71,7 @@ public class AliyunDemoTest {
             }
         });
 
-        Thread.sleep(10000);
+        Thread.sleep(1000000);
     }
 
 }

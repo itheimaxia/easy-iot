@@ -1,7 +1,6 @@
 package com.itheimaxia.easyiot.server.service;
 
-import com.itheimaxia.easyiot.common.bean.Device;
-import com.itheimaxia.easyiot.common.util.DeviceUtil;
+import com.itheimaxia.easyiot.api.util.DeviceUtil;
 import com.itheimaxia.easyiot.server.bean.ConnectionDO;
 import com.itheimaxia.easyiot.server.bean.DeviceDO;
 import com.itheimaxia.easyiot.server.entity.PageResult;
@@ -11,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.aggregation.Aggregation;
-import org.springframework.data.mongodb.core.aggregation.LookupOperation;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
