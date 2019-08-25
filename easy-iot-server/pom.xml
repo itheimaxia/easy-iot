@@ -13,6 +13,9 @@
     <name>easy-iot-server</name>
     <description>Server project for Spring Boot</description>
 
+    <dependencyManagement>
+
+    </dependencyManagement>
     <dependencies>
 
         <dependency>
