@@ -24,14 +24,14 @@ public class HttpClientProvider {
     }
 
     protected RestTemplate createRestTemplate(MappingProperties mapping) {
-        CloseableHttpClient client = createHttpClient(mapping).build();
+        CloseableHttpClient client = createHttpClient().build();
         HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory(client);
         requestFactory.setConnectTimeout(mapping.getTimeout().getConnect());
         requestFactory.setReadTimeout(mapping.getTimeout().getRead());
         return new RestTemplate(requestFactory);
     }
 
-    protected HttpClientBuilder createHttpClient(MappingProperties mapping) {
+    protected HttpClientBuilder createHttpClient() {
         return HttpClientBuilder.create().useSystemProperties().disableRedirectHandling().disableCookieManagement();
     }
 }
