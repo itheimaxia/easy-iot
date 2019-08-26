@@ -35,7 +35,7 @@ public class DeviceController {
 
     @GetMapping("/{product_name}/{device_name}")
     public DeviceDO register(@PathVariable("product_name") String productName,
-                             @PathVariable("device_name") @Valid @Length(max = 1) String deviceName){
+                             @PathVariable("device_name") String deviceName){
         return deviceService.getDevice(productName,deviceName);
     }
 

@@ -2,6 +2,7 @@ package com.itheimaxia.easyiotgateway.core.mapping;
 
 import com.itheimaxia.easyiotgateway.config.GatewayProperties;
 import com.itheimaxia.easyiotgateway.config.MappingProperties;
+import com.itheimaxia.easyiotgateway.core.http.HttpClientProvider;
 import org.springframework.boot.autoconfigure.web.ServerProperties;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,9 +12,10 @@ import java.util.stream.Collectors;
 public class ConfigurationMappingsProvider extends MappingProvider {
 
     public ConfigurationMappingsProvider(
-            GatewayProperties gatewayProperties
+            GatewayProperties gatewayProperties,
+            HttpClientProvider httpClientProvider
     ) {
-        super(gatewayProperties);
+        super(gatewayProperties,httpClientProvider);
     }
 
 
