@@ -71,7 +71,7 @@ public abstract class MappingProvider implements IMappingProvider{
         List<MappingProperties> newMappings = retrieveMappings();
         //mappingsValidator.validate(newMappings);
         mappings = newMappings;
-        mappings.stream().forEach(mapping ->{
+        mappings.forEach(mapping ->{
             validateDestinations(mapping);
         });
 

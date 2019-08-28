@@ -67,7 +67,7 @@ public class RequestForwarder {
         ResponseData response = sendRequest(traceId, request, mapping, destination.getMappingMetricsName(), data);
 
         log.debug(String.format("Forwarded: %s %s %s -> %s %d", data.getMethod(), data.getHost(), data.getUri(), destination.getUri(), response.getStatus().value()));
-
+        log.info("测试");
 //        traceInterceptor.onForwardComplete(traceId, response.getStatus(), response.getBody(), response.getHeaders());
         postForwardResponseInterceptor.intercept(response, mapping);
         prepareForwardedResponseHeaders(response);
