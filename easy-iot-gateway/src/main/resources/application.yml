@@ -10,6 +10,11 @@ eigateway:
             host: api.itheima.com
             destinations: localhost:8092
 
+        -
+            name: ithub_route
+            host: iothub.itcast.cn
+            destinations: localhost:8095
+
 management:
     endpoints:
         web:

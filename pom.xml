@@ -22,6 +22,7 @@
         <module>easy-iot-common</module>
         <module>easy-iot-api</module>
         <module>easy-iot-gateway</module>
+        <module>easy-iot-hub</module>
     </modules>
 
     <properties>
