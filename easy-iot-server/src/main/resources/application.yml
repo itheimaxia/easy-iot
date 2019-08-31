@@ -15,5 +15,12 @@ spring:
             host: 192.168.62.133
             port: 27017
             database: easyiot
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/easyiot?useUnicode=true&characterEncoding=utf8
+        username: root
+        password: 123456
+
+
 server:
     port: 8092

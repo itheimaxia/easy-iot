@@ -5,6 +5,7 @@ import com.itheimaxia.easyiot.server.bean.ConnectionDO;
 import com.itheimaxia.easyiot.server.bean.DeviceDO;
 import com.itheimaxia.easyiot.server.entity.PageResult;
 import com.itheimaxia.easyiot.server.entity.QueryPageBean;
+import com.itheimaxia.easyiot.server.mapper.DeviceMapper;
 import com.itheimaxia.easyiot.server.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -14,16 +15,20 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 @Service
+@Transactional
 public class DeviceServiceImpl implements DeviceService {
 
     @Autowired
     private MongoTemplate mongoTemplate;
+    @Autowired
+    private DeviceMapper deviceMapper;
 
     @Override
     public DeviceDO getDevice(String productName, String deviceName) {
@@ -32,10 +37,10 @@ public class DeviceServiceImpl implements DeviceService {
                                 and("device_name").is(deviceName)),
                         DeviceDO.class);
 
-        ConnectionDO connectionDO =
-                mongoTemplate.findOne(Query.query(Criteria.where("username").is(DeviceUtil.getDeviceName(device))),
-                        ConnectionDO.class);
-        device.setConnection(connectionDO);
+//        ConnectionDO connectionDO =
+//                mongoTemplate.findOne(Query.query(Criteria.where("username").is(DeviceUtil.getDeviceName(device))),
+//                        ConnectionDO.class);
+//        device.setConnection(connectionDO);
         return device;
     }
 
@@ -44,9 +49,9 @@ public class DeviceServiceImpl implements DeviceService {
         device.setProduct_name(productName);
         device.setDevice_name(StringUtil.createDeviceName());
         device.setSecret(StringUtil.createDeviceName());
-        device.setBroker_username(device.getProduct_name()+"/"+device.getDevice_name());
+        //device.setBroker_username(device.getProduct_name()+"/"+device.getDevice_name());
 
-        mongoTemplate.save(device);
+        deviceMapper.insert(device);
 
         return device;
     }

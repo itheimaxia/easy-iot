@@ -17,7 +17,7 @@ public class ConnectionDO implements Serializable {
     private String ip_address;
     private Integer proto_ver;
     private Integer connected_at;
-    private Long disconnect_at;
+    private Integer disconnect_at;
     @Id
     private String username;
 
